@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000; // Set the port
 
 // Define the /home route to return "This is the home page"
-app.get("/.netlify/functions/server/home", (req, res) => {
+app.get("/home", (req, res) => {
   res.json({ message: "This is the home page" });
 });
 
