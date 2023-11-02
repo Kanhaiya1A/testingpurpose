@@ -3,12 +3,18 @@ const express = require("express");
 
 // Create an instance of Express
 const app = express();
+const router = express.Router();
+
+
 const port = process.env.PORT || 3000; // Set the port
 
 // Define the /home route to return "This is the home page"
 app.get("/homepage", (req, res) => {
   res.json({ message: "This is the home page" });
 });
+
+app.use("/.netlify/functions/api", router);
+
 
 // Start the server
 app.listen(port, () => {
