@@ -13,10 +13,13 @@ app.get("/homepage", (req, res) => {
   res.json({ message: "This is the home page" });
 });
 
-app.use("/.netlify/functions/api", router);
 
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
+
+app.use("/.netlify/functions/api", router);
+module.exports.handler = serverless(app);
+
